@@ -19,10 +19,7 @@ def read(path: str) -> List[Dict]:
     """
     with open(path, encoding="utf8") as file:
         path_reader = csv.DictReader(file, delimiter=",")
-        people_list = list()
-        for dictionary in path_reader:
-            people_list.append(dictionary)
-    return people_list
+        return list(path_reader)
 
     # raise NotImplementedError
 
