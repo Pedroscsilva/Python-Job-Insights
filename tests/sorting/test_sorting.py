@@ -7,21 +7,21 @@ unordered_jobs = [
 ]
 
 min_ordered = [
-    {"min_salary": 700, "max_salary": 4200, "date_posted": "2020-05-15"},
-    {"min_salary": 1000, "max_salary": 2000, "date_posted": "2020-05-08"},
-    {"min_salary": 1500, "max_salary": 4000, "date_posted": "2020-05-11"}
+    {"date_posted": "2020-05-15", "max_salary": 4200, "min_salary": 700},
+    {"date_posted": "2020-05-08", "max_salary": 2000, "min_salary": 1000},
+    {"date_posted": "2020-05-11", "max_salary": 4000, "min_salary": 1500}
 ]
 
 max_ordered = [
-    {"min_salary": 700, "max_salary": 4200, "date_posted": "2020-05-15"},
-    {"min_salary": 1500, "max_salary": 4000, "date_posted": "2020-05-11"},
-    {"min_salary": 1000, "max_salary": 2000, "date_posted": "2020-05-08"}
+    {"date_posted": "2020-05-15", "max_salary": 4200, "min_salary": 700},
+    {"date_posted": "2020-05-11", "max_salary": 4000, "min_salary": 1500},
+    {"date_posted": "2020-05-08", "max_salary": 2000, "min_salary": 1000}
 ]
 
 date_ordered = [
-    {"min_salary": 700, "max_salary": 4200, "date_posted": "2020-05-15"},
-    {"min_salary": 1500, "max_salary": 4000, "date_posted": "2020-05-11"},
-    {"min_salary": 1000, "max_salary": 2000, "date_posted": "2020-05-08"}
+    {"date_posted": "2020-05-15", "max_salary": 4200, "min_salary": 700},
+    {"date_posted": "2020-05-11", "max_salary": 4000, "min_salary": 1500},
+    {"date_posted": "2020-05-08", "max_salary": 2000, "min_salary": 1000}
 ]
 
 
