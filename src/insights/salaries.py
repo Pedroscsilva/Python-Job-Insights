@@ -61,12 +61,12 @@ def get_min_salary(path: str) -> int:
 def validate_salary_filter(job, salary):
     if "min_salary" not in job or "max_salary" not in job:
         raise ValueError
-    if type(job["min_salary"]) != int or type(job["max_salary"]) != int:
-        print(type(job["min_salary"]))
+    if not isinstance(job["min_salary"], (int, str)) or \
+       not isinstance(job["max_salary"], (int, str)):
         raise ValueError
-    if job["min_salary"] > job["max_salary"]:
+    if int(job["min_salary"]) > int(job["max_salary"]):
         raise ValueError
-    if type(salary) == "string" and not salary.isnumeric():
+    if not isinstance(salary, (str, int)):
         raise ValueError
 
 
@@ -95,10 +95,7 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     """
     validate_salary_filter(job, salary)
 
-    return job["min_salary"] <= int(salary) <= job["max_salary"]
-    #     return True
-    # else:
-    #     return False
+    return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
     # raise NotImplementedError
 
 
@@ -120,4 +117,13 @@ def filter_by_salary_range(
     list
         Jobs whose salary range contains `salary`
     """
-    raise NotImplementedError
+    filtered_jobs = list()
+    for job in jobs:
+        try:
+            matched = matches_salary_range(job, salary)
+        except ValueError:
+            matched = False
+        if matched:
+            filtered_jobs.append(job)
+    return filtered_jobs
+    # raise NotImplementedError
