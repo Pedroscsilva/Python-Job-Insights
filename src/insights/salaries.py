@@ -58,6 +58,18 @@ def get_min_salary(path: str) -> int:
     # raise NotImplementedError
 
 
+def validate_salary_filter(job, salary):
+    if "min_salary" not in job or "max_salary" not in job:
+        raise ValueError
+    if type(job["min_salary"]) != int or type(job["max_salary"]) != int:
+        print(type(job["min_salary"]))
+        raise ValueError
+    if job["min_salary"] > job["max_salary"]:
+        raise ValueError
+    if type(salary) == "string" and not salary.isnumeric():
+        raise ValueError
+
+
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     """Checks if a given salary is in the salary range of a given job
 
@@ -81,7 +93,13 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    raise NotImplementedError
+    validate_salary_filter(job, salary)
+
+    return job["min_salary"] <= int(salary) <= job["max_salary"]
+    #     return True
+    # else:
+    #     return False
+    # raise NotImplementedError
 
 
 def filter_by_salary_range(
